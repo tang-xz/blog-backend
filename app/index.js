@@ -2,6 +2,7 @@ const Koa = require('koa');
 const favicon = require('koa-favicon');
 const path = require('path');
 const static = require('koa-static');
+const views = require('koa-views');
 
 const app = new Koa();
 
@@ -17,6 +18,13 @@ app.use(static(path.join(__dirname, 'static')), {
 
 // listen to http log
 app.use(log4js.koaLogger(log4js.getLogger("http"), { level: 'auto' }));
+
+// Must be used before any router is used
+app.use(views(__dirname + '/views', {
+  map: {
+    html: 'underscore'
+  }
+}));
 
 app.use(router.routes());
 

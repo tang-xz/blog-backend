@@ -1,0 +1,1 @@
+1. 如何将全局错误提示写入 log 目录，如： `logger.error('server error', err, ctx);`

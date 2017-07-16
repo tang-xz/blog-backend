@@ -1,0 +1,1 @@
+1. 需要异步操作的函数，需要指定为 async 形式，如： koa-views 的 `render` 函数
